@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-def can_unlock_all(boxes):
+def canUnlockAll(boxes):
     n = len(boxes)  # Total number of boxes
     visited = [False] * n  # Initialize visited list
 
@@ -22,4 +21,4 @@ def can_unlock_all(boxes):
 
 # Example usage:
 boxes = [[1], [2], [3], []]
-print(can_unlock_all(boxes))  # Should return True
+print(canUnlockAll(boxes))  # Should return True
