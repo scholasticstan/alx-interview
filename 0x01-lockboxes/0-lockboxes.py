@@ -1,25 +1,17 @@
 #!/usr/bin/python3
+"""Script will unlock list of lists"""
+
+
 def canUnlockAll(boxes):
-    n = len(boxes)  # Total number of boxes
-    visited = [False] * n  # Initialize visited list
+    """This function will take a list of lists and the content
+       of a list will unlock other lists
+    """
 
-    # Mark the first box as visited since it's unlocked initially
-    visited[0] = True
-
-    # Create a stack to perform DFS
-    stack = [0]
-
-    # Perform DFS to check if all boxes can be opened
-    while stack:
-        current_box = stack.pop()
-        for key in boxes[current_box]:
-            if 0 <= key < n and not visited[key]:
-                visited[key] = True
-                stack.append(key)
-
-    # Check if all boxes have been visited
-    return all(visited)
-
-# Example usage:
-boxes = [[1], [2], [3], []]
-print(canUnlockAll(boxes))  # Should return True
+    keys = [0]
+    for key in keys:
+        for boxKey in boxes[key]:
+            if boxKey not in keys and boxKey < len(boxes):
+                keys.append(boxKey)
+    if len(keys) == len(boxes):
+        return True
+    return False
